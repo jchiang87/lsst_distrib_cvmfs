@@ -11,6 +11,7 @@ jobs:
     - uses: cvmfs-contrib/github-action-cvmfs@v4
       with: 
         cvmfs_repositories: 'sw.lsst.eu'
+        cvmfs_server_url: 'http://cclssts1.in2p3.fr/cvmfs/sw.lsst.eu;http://cvmfs-stratum-one.cern.ch/cvmfs/sw.lsst.eu;http://cvmfs-s1goc.opensciencegrid.org/cvmfs/sw.lsst.eu'
     - name: Test CernVM-FS
       run: |
         ls /cvmfs/sft.cern.ch/
