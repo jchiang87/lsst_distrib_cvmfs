@@ -14,4 +14,4 @@ jobs:
     - name: Test CernVM-FS
       run: |
         ls /cvmfs/sft.cern.ch/
-        ls /cvmfs
+        ls /cvmfs/sw.lsst.eu/
