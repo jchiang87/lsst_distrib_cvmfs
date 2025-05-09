@@ -1,0 +1,21 @@
+name: minimal cvmfs example with sw.lsst.eu
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  ubuntu-minimal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cvmfs-contrib/github-action-cvmfs@v4
+    - name: Test CernVM-FS
+      run: |
+        curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst_0.7_all.deb
+        sudo dpkg -i cvmfs-config-lsst_0.7_all.deb
+        ls /cvmfs/sw.lsst.eu/
+        LSST_DISTRIB_ROOT=/cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib
+        LATEST_VERSION=`/usr/bin/ls -rt ${LSST_DISTRIB_ROOT} | grep w_20 | tail -n 1`
+        source ${LSST_DISTRIB_ROOT}/${LATEST_VERSION}/loadLSST-ext.bash
+        setup lsst_distrib
+        eups list lsst_distrib
