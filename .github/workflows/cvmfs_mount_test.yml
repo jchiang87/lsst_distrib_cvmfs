@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install CVMFS client
-        run: sudo apt-get update && sudo apt-get install -y cvmfs2
+        run: |
+          sudo yum install -y https://cvmrepo.s3.cern.ch/cvmrepo/yum/cvmfs-release-latest.noarch.rpm
+          sudo yum install -y cvmfs
 
       - name: Mount example CVMFS repository
         run: |
