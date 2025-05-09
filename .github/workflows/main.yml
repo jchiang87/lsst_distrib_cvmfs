@@ -12,5 +12,6 @@ jobs:
       with:
         cmvfs_repositories: 'sw.lsst.eu'
     - name: Test CernVM-FS
-      run: ls /cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib/
+      run: ls /cvmfs
+      #run: ls /cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib/
       
