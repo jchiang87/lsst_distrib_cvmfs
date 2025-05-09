@@ -11,10 +11,9 @@ jobs:
     - uses: cvmfs-contrib/github-action-cvmfs@v4
       with: 
         cvmfs_repositories: 'sw.lsst.eu'
-        cvmfs_server_url: 'http://cclssts1.in2p3.fr/cvmfs/sw.lsst.eu;http://cvmfs-stratum-one.cern.ch/cvmfs/sw.lsst.eu;http://cvmfs-s1goc.opensciencegrid.org/cvmfs/sw.lsst.eu'
+        #cvmfs_server_url: 'http://cclssts1.in2p3.fr/cvmfs/sw.lsst.eu;http://cvmfs-stratum-one.cern.ch/cvmfs/sw.lsst.eu;http://cvmfs-s1goc.opensciencegrid.org/cvmfs/sw.lsst.eu'
     - name: Test CernVM-FS
       run: |
         curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst_0.7_all.deb
         sudo dpkg -i cvmfs-config-lsst_0.7_all.deb
-        ls /cvmfs/sft.cern.ch/
         ls /cvmfs/sw.lsst.eu/
