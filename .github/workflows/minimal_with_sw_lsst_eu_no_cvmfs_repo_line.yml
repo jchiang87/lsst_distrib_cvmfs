@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: cvmfs-contrib/github-action-cvmfs@v4
-      with: 
-        cvmfs_repositories: 'sw.lsst.eu'
+      #with: 
+      #  cvmfs_repositories: 'sw.lsst.eu'
     - name: Test CernVM-FS
       run: |
         curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst_0.7_all.deb
