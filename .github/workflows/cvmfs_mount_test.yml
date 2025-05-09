@@ -1,0 +1,30 @@
+name: CVMFS Integration
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install CVMFS client
+        run: sudo apt-get update && sudo apt-get install -y cvmfs2
+
+      - name: Mount example CVMFS repository
+        run: |
+          sudo mkdir -p /cvmfs/sw.lsst.eu
+          sudo mount -t cvmfs sw.lsst.eu /cvmfs/sw.lsst.eu
+          ls /cvmfs/sw.lsst.eu
+
+      - name: Use software from CVMFS
+        run: |
+          ls /cvmfs
+          ls /cvmfs/sw.lsst.eu
+
+      - name: Unmount CVMFS repository
+        if: always()
+        run: sudo umount /cvmfs/sw.lsst.eu
