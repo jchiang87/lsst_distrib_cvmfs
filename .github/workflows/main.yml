@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: cvmfs-contrib/github-action-cvmfs@v4
+    - uses: ./
       with:
         cvmfs_repositories: 'sw.lsst.eu'
     - name: Test CernVM-FS
@@ -16,4 +17,3 @@ jobs:
         cat /etc/cvmfs/default.local
         ls /cvmfs
         ls /cvmfs/sw.lsst.eu
-        
