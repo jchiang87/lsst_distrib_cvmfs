@@ -11,10 +11,12 @@ jobs:
     - uses: cvmfs-contrib/github-action-cvmfs@v4
     #- uses: ./
       with:
+        cvmfs_http_proxy: DIRECT
         cvmfs_repositories: 'sw.lsst.eu'
     - name: Test CernVM-FS
       run: |
         pwd -P
+        ls ./
         cat /etc/cvmfs/default.local
         ls /cvmfs
         #ls /cvmfs/sw.lsst.eu
