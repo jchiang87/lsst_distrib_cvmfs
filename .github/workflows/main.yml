@@ -13,10 +13,17 @@ jobs:
         cvmfs_repositories: 'sw.lsst.eu'
     - name: Test CernVM-FS
       run: |
+        echo "running pwd -P"
         pwd -P
+        echo "running ls ./"
         ls ./
+        echo "running ls ../"
         ls ../
+        echo "running ls /"
         ls /
+        echo "cat /etc/cvmfs/default.local"
         cat /etc/cvmfs/default.local
+        echo "running ls /cvmfs"
         ls /cvmfs
-        #ls /cvmfs/sw.lsst.eu
+        echo "running cvmfs_config showconfig -s sw.lsst.eu"
+        cvmfs_config showconfig -s sw.lsst.eu
