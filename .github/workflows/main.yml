@@ -1,0 +1,16 @@
+name: lsst_distrib_cvmfs CI
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  ubuntu-minimal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cvmfs-contrib/github-action-cvmfs@v4
+      with:
+        cmvfs_repositories: 'sw.lsst.eu'
+    - name: Test CernVM-FS
+      run: ls /cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib/
+      
